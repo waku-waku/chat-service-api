@@ -1,0 +1,63 @@
+#!/usr/bin/env node
+
+var MongoClient = require('mongodb').MongoClient;
+var mongo_url = 'mongodb://localhost:27017/' + 'chat_service';
+var i;
+
+console.log(mongo_url);
+
+// Collections
+var collections = [
+	'users',
+	'talks',
+	'talk_histories'
+	'friends',
+	'user_settings',
+	'timeline',
+	'oauth_clients',
+	'oauth_access_tokens',
+	'oauth_refresh_tokens'
+];
+
+//Create some users
+var t_user = [
+	{
+		user_id: "",
+		device_token: "",
+		os_type: ""
+	}
+];
+
+MongoClient.connect(mongo_url, function(err, db) {
+    if(err) {
+        console.log(err);
+    }
+    else {
+         mongoInsert(db, collections, {}, function(user_res) { 
+            console.log(user_res);
+            db.close();
+        });
+    }
+
+    console.log('Disconnected from server successfully');
+});
+
+function mongoInsert(db, collections, data,cb) {
+
+	for(i=0; i<collections.length; i++) {
+	    var collection = db.collection(collections[i]);
+	    collection.insert(data, function(err, res) {
+	        if(err) {
+	            console.log(err);
+	        }
+	        else {
+	            console.log('Inserted into the ' + collections[i] + ' collection');
+	            if (i == collections.length-1) {
+	            	cb(res);
+	            	console.log("Done.");
+	            }
+	        }
+	    });
+	}
+}
+

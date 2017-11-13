@@ -1,0 +1,43 @@
+{
+  "name": "chat-service-api",
+  "version": "1.0.0",
+  "description": "wakuwaku <street.change.97@gmail.com>",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/waku-waku/chat-service-api.git"
+  },
+  "author": "street.change.97@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/waku-waku/chat-service-api/issues"
+  },
+  "homepage": "https://github.com/waku-waku/chat-service-api#readme",
+  "dependencies": {
+    "async": "^2.0.1",
+    "bcrypt-nodejs": "0.0.3",
+    "bluebird": "^3.4.1",
+    "body-parser": "^1.15.2",
+    "compression": "^1.6.2",
+    "connect-redis": "^3.1.0",
+    "cookie-parser": "^1.4.3",
+    "crypto": "0.0.3",
+    "ejs": "^2.4.2",
+    "express": "^4.14.0",
+    "express-session": "^1.14.0",
+    "helmet": "^2.3.0",
+    "method-override": "^2.3.6",
+    "moment": "^2.14.1",
+    "mongodb": "^2.2.5",
+    "mongoose": "^4.5.6",
+    "morgan": "^1.7.0",
+    "multer": "^1.2.0",
+    "node-uuid": "~1.4.7",
+    "path": "^0.12.7",
+    "underscore": "^1.8.3"
+  }
+}
